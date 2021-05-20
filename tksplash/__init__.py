@@ -1,5 +1,1 @@
-from .tksplash import add_splash_text
-from .tksplash import add_image
-from .tksplash import add_image_text
-from .tksplash import add_gif
-from .tksplash import add_gif_text
+from .tksplash import Tksplash

@@ -5,18 +5,19 @@ from PIL import Image
 
 
 class Tksplash:
-    def __init__(self, window, destroy_time=3000, font_style="Lucida Grande",text_colour='#FF002D'):
+    def __init__(self, window, destroy_time=3000, font_style="Lucida Grande",text_colour='#FF002D',font_size=100):
         self.win = window
         self.time = destroy_time
         self.text = font_style
         self.colour = text_colour
+        self.size = font_size
 
-    def add_splash_text(self, text, width, height, font_size):
+    def add_splash_text(self, text, width, height):
         # To destroy the label after a given time
         def destroy(thing): return thing.destroy()
 
         # Setting the font style and the font size
-        fontStyle = font.Font(family=self.text, size=font_size)
+        fontStyle = font.Font(family=self.text, size=self.size)
         splash_screen_label = Label(self.win, text=str(text), font=fontStyle,
                                     fg=self.colour)  # Making a label and setting the  appropriate attributes
         x_pos = width / 2  # finding the middle of the screen
@@ -39,7 +40,7 @@ class Tksplash:
                        destroy(canvas))  # Destroying the label after the given time period
         self.win.wait_window(canvas)  # Pause everything until this has loaded
 
-    def add_image_text(self, text, width, height, font_size, img, img_x, img_y, place_x, place_y,):
+    def add_image_text(self, text, width, height, img, img_x, img_y, place_x, place_y,):
         def destroy(thing): return thing.destroy()
 
         canvas = Canvas(self.win, width=img_x, height=img_y)
@@ -49,7 +50,7 @@ class Tksplash:
         self.win.after(self.time,
                        destroy(canvas))  # Destroying the label after the given time period
         # Setting the font style and the font size
-        fontStyle = font.Font(family=self.text, size=font_size)
+        fontStyle = font.Font(family=self.text, size=self.size)
         splash_screen_label = Label(self.win, text=str(text), font=fontStyle,
                                     fg=self.colour)  # Making a label and setting the  appropriate attributes
         x_pos = width / 2  # finding the middle of the screen
@@ -100,7 +101,7 @@ class Tksplash:
         update(0)
         self.win.wait_window(label)
 
-    def add_gif_text(self, text, width, height, font_size, gif, place_x, place_y):
+    def add_gif_text(self, text, width, height, gif, place_x, place_y):
         def count(main_gif):
             # print("counting..")
             file = Image.open(main_gif)
@@ -137,7 +138,7 @@ class Tksplash:
         x_pos = width / 2
         y_pos = height / 2
         label.place(x=place_x, y=place_y)
-        fontStyle = font.Font(family=self.text, size=font_size)
+        fontStyle = font.Font(family=self.text, size=self.size)
         splash_screen_label = Label(self.win, text=str(text), font=fontStyle,
                                     fg=self.colour)
         splash_screen_label.place(x=x_pos, y=y_pos, anchor=CENTER)
