@@ -1,0 +1,1 @@
+from .tksplash import Tksplash
