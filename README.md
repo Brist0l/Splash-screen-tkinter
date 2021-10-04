@@ -1,4 +1,4 @@
-The tksplash module can be used to make splash screens for all of your GUIs which you make using tkinter 
+The tksplash module can be used to make splash screens for GUIs which you make using tkinter 
 
 These are some examples on how to use this module :
 
